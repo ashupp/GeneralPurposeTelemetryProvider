@@ -20,7 +20,7 @@ https://whitemagic.github.io/JoystickGremlin/
   - [latest GeneralPurposeTelemetry.zip](https://github.com/ashupp/GeneralPurposeTelemetryProvider/releases/latest/download/GeneralPurposeTelemetry.zip)  
 - Download zip archive, put it into your SimFeedbackFolder root and Extract there.  
 - As the directorys should match, each file should be put automatically in the right place.  
-- Added sfx100-jg-input.py as Plugin in Joystick Gremlin and configure Axis according to your needs and enable Profile  
+- Add sfx100-jg-input.py as Plugin in Joystick Gremlin, configure Axis according to your needs and enable Profile  
 
 **If the previous method is not working, manual instructions here:**     
 - Open zip archive
