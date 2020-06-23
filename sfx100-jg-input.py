@@ -1,10 +1,8 @@
 import gremlin
 import socket
-import threading
-import atexit
 from gremlin.user_plugin import *
 
-gremlin.util.log("started")
+gremlin.util.log("started sfx100 input")
 
 mode = ModeVariable(
     "Mode",
@@ -52,12 +50,16 @@ roll = 0
 pitch = 0
 surge = 0
 yaw = 0
+timerIsActive = 0
 
 opened_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-opened_socket.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 20)
-sendInterval = 0.016
-timerIsActive = 0
-exitTimer = 0
+# opened_socket.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 20)
+
+
+@gremlin.input_devices.periodic(0.016)
+def update_cycle():
+    if timerIsActive == 1:
+        send_data()
 
 
 @decorator_X.axis(axis_X.input_id)
@@ -100,12 +102,6 @@ def axis_SL_evt(event):
     pass
 
 
-def exit_cycle():
-    global exitTimer
-    gremlin.util.log("stopping cycle")
-    exitTimer = 1
-
-
 def send_data():
     global timerIsActive
     byte_message = bytes("pitch=" + str(pitch * 100) + "\r\n"
@@ -118,14 +114,3 @@ def send_data():
     if timerIsActive == 0:
         gremlin.util.log("starting cycle")
         timerIsActive = 1
-        update_cycle()
-
-
-def update_cycle():
-    global exitTimer
-    send_data()
-    if exitTimer == 0:
-        threading.Timer(sendInterval, update_cycle).start()
-
-
-atexit.register(exit_cycle)
