@@ -2,7 +2,7 @@ import gremlin
 import socket
 from gremlin.user_plugin import *
 
-gremlin.util.log("started sfx100 input 0.0.1.0H")
+gremlin.util.log("started sfx100 input 0.0.2.0")
 
 mode = ModeVariable(
     "Mode",
