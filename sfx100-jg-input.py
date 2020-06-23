@@ -2,7 +2,7 @@ import gremlin
 import socket
 from gremlin.user_plugin import *
 
-gremlin.util.log("started sfx100 input 0.0.2.0")
+gremlin.util.log("started sfx100 input 0.0.2.0c")
 
 mode = ModeVariable(
     "Mode",
@@ -104,3 +104,6 @@ def send_data():
                          , "utf-8")
     opened_socket.sendto(byte_message, ("127.0.0.1", 26999))
 
+
+send_data()
+update_cycle()
