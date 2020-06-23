@@ -2,7 +2,7 @@ import gremlin
 import socket
 from gremlin.user_plugin import *
 
-gremlin.util.log("started sfx100 input")
+gremlin.util.log("started sfx100 input 0.0.1.0H")
 
 mode = ModeVariable(
     "Mode",
@@ -53,20 +53,16 @@ yaw = 0
 timerIsActive = 0
 
 opened_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-# opened_socket.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 20)
-
 
 @gremlin.input_devices.periodic(0.016)
 def update_cycle():
-    if timerIsActive == 1:
-        send_data()
+    send_data()
 
 
 @decorator_X.axis(axis_X.input_id)
 def axis_X_evt(event):
     global roll
     roll = event.value
-    send_data()
     pass
 
 
@@ -74,7 +70,6 @@ def axis_X_evt(event):
 def axis_Y_evt(event):
     global pitch
     pitch = event.value
-    send_data()
     pass
 
 
@@ -82,7 +77,6 @@ def axis_Y_evt(event):
 def axis_ZS_evt(event):
     global surge
     surge = event.value
-    send_data()
     pass
 
 
@@ -90,7 +84,6 @@ def axis_ZS_evt(event):
 def axis_ZR_evt(event):
     global yaw
     yaw = event.value
-    send_data()
     pass
 
 
@@ -98,7 +91,6 @@ def axis_ZR_evt(event):
 def axis_SL_evt(event):
     global heave
     heave = event.value
-    send_data()
     pass
 
 
@@ -111,6 +103,4 @@ def send_data():
                          + "heave=" + str(heave * 100) + "\r\n"
                          , "utf-8")
     opened_socket.sendto(byte_message, ("127.0.0.1", 26999))
-    if timerIsActive == 0:
-        gremlin.util.log("starting cycle")
-        timerIsActive = 1
+
