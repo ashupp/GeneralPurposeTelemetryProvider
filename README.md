@@ -1,5 +1,5 @@
-# Condor2TelemetryProvider
-Condor/Condor2 Telemetry Provider for SimFeedback / SFX-100  
+# GeneralPurposeTelemetryProvider
+General Porpose Telemetry Provider for SimFeedback / SFX-100 
 
 Please support this great project.  
 https://opensfx.com
@@ -12,16 +12,15 @@ I am not responsible of any damages caused by usage of this plugin!
 **You have been warned!**
 
 ## Requirements
-- UDP output of condor enabled. See:  
-https://www.condorsoaring.com/manual_en/#simkits-and-udp-outputs  
-- In Udp.ini set SendIntervalMs=16
-- Use Default Port 55287 and IP 127.0.0.1
+- Joystick Gremlin Version 13.3+
+https://whitemagic.github.io/JoystickGremlin/  
 
 ## Installation
-- Do not click on Download on this page. Download the file from the release tab or use the following link:
-  - [latest Condor2Telemetry.zip](https://github.com/ashupp/Condor2TelemetryProvider/releases/latest/download/Condor2Telemetry.zip)
+- Do not click on Download on this page. Download the file from the release tab or use the following link:  
+  - [latest GeneralPurposeTelemetry.zip](https://github.com/ashupp/GeneralPurposeTelemetryProvider/releases/latest/download/GeneralPurposeTelemetry.zip)  
 - Download zip archive, put it into your SimFeedbackFolder root and Extract there.  
 - As the directorys should match, each file should be put automatically in the right place.  
+- Add sfx100-jg-input.py as Plugin in Joystick Gremlin, configure Axis according to your needs and enable Profile  
 
 **If the previous method is not working, manual instructions here:**     
 - Open zip archive
