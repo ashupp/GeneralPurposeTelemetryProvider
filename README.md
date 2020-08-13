@@ -12,6 +12,8 @@ I am not responsible of any damages caused by usage of this plugin!
 **You have been warned!**
 
 ## Requirements
+- vJoy v2.1.9.1 (tested with this version) 
+https://github.com/jshafer817/vJoy/releases/tag/v2.1.9.1  
 - Joystick Gremlin Version 13.3+
 https://whitemagic.github.io/JoystickGremlin/  
 
